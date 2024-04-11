@@ -1,3 +1,4 @@
+import { LinkDescriptor, LinksFunction } from '@remix-run/node'
 import {
   Links,
   Meta,
@@ -5,6 +6,32 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+
+import tailwindStyles from '~/styles/tailwind.css?url'
+
+export const links: LinksFunction = () => {
+  const links: LinkDescriptor[] = [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossOrigin: 'anonymous',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;900&display=swap',
+    },
+    {
+      rel: 'stylesheet',
+      href: tailwindStyles,
+    },
+  ]
+
+  return links
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="text-base text-black dark:bg-slate-900 dark:text-white">
         {children}
         <ScrollRestoration />
         <Scripts />
