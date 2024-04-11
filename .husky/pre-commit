@@ -1,5 +1,14 @@
-echo '🏗️👷 Styling your project before committing👷‍♂️🏗️'
-echo 'please be patient, this may take a while...'
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# if [ "$branch" = "main" ]; then
+#   echo "Don't commit to main - it's bad luck ❌"
+#   exit 1
+# fi
+
+echo '🏗️👷 Styling your project before committing...'
 
 npx lint-staged || 
 (
@@ -8,14 +17,7 @@ npx lint-staged ||
     false;
 )
 
-echo '🎉 Files linted, testing everything before committing👷‍♂️🏗️.... ✨🚀🏄‍♂️🍻'
+echo '🎉 Files linted, testing everything before committing....'
 
-# Check ESLint Standards
-# npm run test-all ||
-# (
-#     echo '🔨❌ Yoo, you have a problem in your code. Check linter 🔨❌
-#           Run yarn lint, add changes and try commit again.';
-#     false;
-# )
 
-echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'
+echo 'No errors found: committing this now.... ✨🚀🏄‍♂️🍻'
