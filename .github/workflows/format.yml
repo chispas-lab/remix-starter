@@ -12,7 +12,6 @@ concurrency:
 
 jobs:
   format:
-    if: github.repository == 'remix-run/blues-stack'
     runs-on: ubuntu-latest
 
     steps:
