@@ -3,6 +3,32 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "keywords": [
+    "typescript",
+    "react",
+    "eslint",
+    "prettier",
+    "vitest",
+    "vercel",
+    "remix",
+    "remix-stack",
+    "tailwind",
+    "remix starter"
+  ],
+  "homepage": "https://github.com/chispas-lab/remix-starter",
+  "bugs": {
+    "url": "https://github.com/chispas-lab/remix-starter/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Chispas Lab",
+    "email": "franz@chispaslab.com",
+    "url": "https://chispaslab.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chispas-lab/remix-starter"
+  },
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
