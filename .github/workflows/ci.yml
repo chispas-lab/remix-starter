@@ -40,5 +40,5 @@ jobs:
       - name: 👔 Format check
         run: npm run format
 
-      - name: 🧪 Run tests with Jest
-        run: npm test
+      - name: 🧪 Run tests
+        run: npm run test
