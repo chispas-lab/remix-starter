@@ -1,33 +1,44 @@
-name: ⬣ Lint repository
+name: Continuous Integration
 
 on:
   push:
     branches:
       - main
-      - dev
+      - next
   pull_request:
+    branches:
+      - main
+      - next
+    paths-ignore:
+      - '**.md'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: ⬣ Lint repo
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
           cache: npm
           cache-dependency-path: ./package.json
           node-version: 18
 
-      - name: 📥 Install deps
+      - name: 📥 Install dependencies
         run: npm install
 
       - name: 🔬 Lint
         run: npm run lint
+
+      - name: 👔 Format check
+        run: npm run format
+
+      - name: 🧪 Run tests
+        run: npm run test
